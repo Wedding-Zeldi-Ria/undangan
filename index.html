@@ -329,7 +329,8 @@
                 <!-- Diubah: theme-text-gold menjadi theme-text-accent (ungu) -->
                 <!-- DIUBAH: text-white menjadi theme-text-accent (ungu) -->
                 <!-- DIUBAH: data-aos-delay dipercepat (lagi) -->
-                <h1 class="font-serif text-3xl sm:text-5xl md:text-7xl my-4 theme-text-accent" data-aos="fade-up" data-aos-delay="50">ZR</h1>
+                <!-- DIUBAH: Ukuran font diperbesar -->
+                <h1 class="font-serif text-5xl sm:text-7xl md:text-9xl my-4 theme-text-accent" data-aos="fade-up" data-aos-delay="50">ZR</h1>
                 <!-- DIUBAH: data-aos-delay dipercepat (lagi) -->
                 <!-- DIUBAH: Ukuran font diperbesar -->
                 <p class="font-serif text-xl sm:text-2xl md:text-3xl" data-aos="fade-up" data-aos-delay="100">21 Desember 2025</p>
@@ -375,14 +376,23 @@
         </audio>
 
         <!-- 3. Header / Hero Section -->
-        <header id="home" class="h-screen min-h-[600px] flex flex-col items-center justify-center text-center p-6 md:p-8 relative overflow-hidden">
+        <!-- DIUBAH: 
+             - h-screen dihilangkan, diganti min-h-screen (agar konten tidak terpotong)
+             - p-6 diubah menjadi p-4 (padding mobile lebih kecil) dan md:p-8 (padding desktop)
+        -->
+        <header id="home" class="min-h-screen min-h-[600px] flex flex-col items-center justify-center text-center p-4 md:p-8 relative overflow-hidden">
             
             <!-- Pola Ornamen Bunga -->
             <div class="absolute inset-0 bg-fixed hero-ornament-pattern z-0">
             </div>
             <!-- Diubah: bg-black/20 menjadi bg-white/30 agar lebih ringan -->
             <div class="absolute inset-0 bg-white/40 z-10"></div> <!-- Diubah: 30% menjadi 40% (lebih cerah) --> 
-            <div class="relative z-10 theme-text-primary pt-20 p-8">
+            
+            <!-- DIUBAH: 
+                 - p-8 dihapus (padding horizontal sekarang diatur oleh header)
+                 - pt-20 diubah menjadi responsif: pt-16 (mobile) dan md:pt-20 (desktop)
+            -->
+            <div class="relative z-10 theme-text-primary pt-16 md:pt-20">
                  
                 <!-- Ornamen sudut ini bisa dihapus jika terlalu ramai, tapi kita biarkan dulu -->
                 <!-- <div class="gold-corner-ornament top-left"></div> ... -->
@@ -395,7 +405,10 @@
                 <p class="text-xl sm:text-2xl md:text-3xl font-serif" data-aos="fade-up" data-aos-delay="400">21 . 12 . 2025</p>
 
                 <!-- BARU: Tombol Musik dipindah ke dalam header -->
-                <button id="music-toggle" class="mt-16 w-14 h-14 rounded-full theme-bg-accent-dark text-white flex items-center justify-center shadow-lg mx-auto transition-transform duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="600">
+                <!-- DIUBAH:
+                     - mt-16 diubah menjadi responsif: mt-12 (mobile) dan md:mt-16 (desktop)
+                -->
+                <button id="music-toggle" class="mt-12 md:mt-16 w-14 h-14 rounded-full theme-bg-accent-dark text-white flex items-center justify-center shadow-lg mx-auto transition-transform duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="600">
                     <span id="music-icon-wrapper">
                         <i data-lucide="music-2"></i>
                     </span>
