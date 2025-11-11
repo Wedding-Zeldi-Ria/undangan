@@ -291,16 +291,16 @@
     <div id="petal-container"></div>
 
     <!-- 1. Cover / Layar Pembuka -->
+    <!-- DIUBAH: Dihapus theme-bg-primary, karena diganti background gambar -->
     <div id="cover" class="fixed inset-0 z-50">
 
-        <!-- --- BARU: Background Mawar Merah-Putih Khusus Cover --- -->
+        <!-- --- BARU: Background Halaman Sampul (ok.jpg) --- -->
+        <!-- Ditambahkan background baru dengan overlay putih cerah (sesuai permintaan "cerah" sebelumnya) -->
         <div class="absolute inset-0 z-0" 
              style="
-                /* DIUBAH: Overlay gelap menjadi overlay putih (cerah) */
-                background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('https://vpyyxnlsfofogfqcllsd.supabase.co/storage/v1/object/public/gambar/bg.jpg');
+                background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('https://vpyyxnlsfofogfqcllsd.supabase.co/storage/v1/object/public/gambar/ok.jpg');
                 background-size: cover;
                 background-position: center;
-                /* opacity: 0.15; */ /* DIHAPUS */
              ">
         </div>
         <!-- --- Akhir Background Baru --- -->
@@ -322,26 +322,26 @@
                 <div class="filigree-ornament bottom-left"></div>
                 <div class="filigree-ornament bottom-right"></div>
 
-                <!-- DIUBAH: data-aos-delay dipercepat -->
-                <p class="font-serif text-base sm:text-lg md:text-xl" data-aos="fade-up" data-aos-delay="50">Undangan Pernikahan</p>
+                <!-- DIUBAH: data-aos-delay dipercepat (lagi) -->
+                <p class="font-serif text-base sm:text-lg md:text-xl" data-aos="fade-up" data-aos-delay="0">Undangan Pernikahan</p>
                 
                 <!-- Diubah: theme-text-gold menjadi theme-text-accent (ungu) -->
                 <!-- DIUBAH: text-white menjadi theme-text-accent (ungu) -->
-                <!-- DIUBAH: data-aos-delay dipercepat -->
-                <h1 class="font-serif text-3xl sm:text-5xl md:text-7xl my-4 theme-text-accent" data-aos="fade-up" data-aos-delay="150">ZR</h1>
-                <!-- DIUBAH: data-aos-delay dipercepat -->
-                <p class="font-serif text-base sm:text-lg md:text-xl" data-aos="fade-up" data-aos-delay="250">21 Desember 2025</p>
+                <!-- DIUBAH: data-aos-delay dipercepat (lagi) -->
+                <h1 class="font-serif text-3xl sm:text-5xl md:text-7xl my-4 theme-text-accent" data-aos="fade-up" data-aos-delay="50">ZR</h1>
+                <!-- DIUBAH: data-aos-delay dipercepat (lagi) -->
+                <p class="font-serif text-base sm:text-lg md:text-xl" data-aos="fade-up" data-aos-delay="100">21 Desember 2025</p>
                 
-                <!-- DIUBAH: data-aos-delay dipercepat -->
-                <div class="mt-12" data-aos="fade-up" data-aos-delay="350">
+                <!-- DIUBAH: data-aos-delay dipercepat (lagi) -->
+                <div class="mt-12" data-aos="fade-up" data-aos-delay="150">
                     <p class="text-base sm:text-lg">Kepada Yth.</p>
                     <p id="guest-name" class="text-xl sm:text-2xl font-bold my-2">Tamu Undangan</p>
                     <p class="text-sm">(Mohon maaf tidak dapat menyebutkan satu per satu)</p>
                 </div>
 
                 <!-- Diubah: theme-bg-accent-dark (sekarang ungu tua) -->
-                <!-- DIUBAH: data-aos-delay dipercepat -->
-                <button id="open-invitation" class="mt-8 theme-bg-accent-dark text-white px-6 py-3 rounded-full font-bold shadow-lg transition-transform duration-300 hover:scale-105 flex items-center justify-center mx-auto" data-aos="fade-up" data-aos-delay="350">
+                <!-- DIUBAH: data-aos-delay dipercepat (lagi) -->
+                <button id="open-invitation" class="mt-8 theme-bg-accent-dark text-white px-6 py-3 rounded-full font-bold shadow-lg transition-transform duration-300 hover:scale-105 flex items-center justify-center mx-auto" data-aos="fade-up" data-aos-delay="150">
                     <i data-lucide="mail-open" class="w-5 h-5 mr-2"></i>
                     Buka Undangan
                 </button>
@@ -998,9 +998,10 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <script>
-        window.addEventListener('load', () => {
+        /* DIUBAH: 'load' menjadi 'DOMContentLoaded' agar animasi AOS lebih cepat aktif */
+        document.addEventListener('DOMContentLoaded', () => {
             AOS.init({
-                duration: 500, /* DIUBAH: Durasi animasi global dipercepat dari 800ms ke 500ms */
+                duration: 500, /* Durasi animasi global 500ms */
                 once: true, 
             });
         });
