@@ -150,10 +150,18 @@
             position: absolute;
             inset: 0;
             background-color: transparent; 
+
+            /* DIUBAH: Menggunakan grid untuk centering yang robust & scroll */
+            display: grid;
+            place-items: center;
+            overflow-y: auto; /* BARU: Izinkan scroll jika konten terlalu tinggi */
+
+            /* Dihapus: (diganti oleh grid)
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            */
             text-align: center;
         }
 
@@ -187,26 +195,30 @@
 
         /* SVG Ornamen Sudut - Versi Bunga */
         .filigree-ornament.top-left {
-            top: 1rem; 
-            left: 1rem;
+            /* DIUBAH: Didekatkan ke tepi agar konsisten dengan padding baru */
+            top: 0.5rem; 
+            left: 0.5rem;
             transform: rotate(0deg);
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="petalGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23FFF0F5"/><stop offset="50%" style="stop-color:%23DB7093"/><stop offset="100%" style="stop-color:%239370DB"/></linearGradient></defs><path fill="url(%23petalGradient)" opacity="0.8" d="M50,0 C80,10 90,40 100,50 C90,60 80,90 50,100 C20,90 10,60 0,50 C10,40 20,10 50,0 Z M50,30 C60,40 60,60 50,70 C40,60 40,40 50,30 Z"/></svg>');
         }
         .filigree-ornament.top-right {
-            top: 1rem;
-            right: 1rem;
+            /* DIUBAH: Didekatkan ke tepi */
+            top: 0.5rem;
+            right: 0.5rem;
             transform: rotateY(180deg);
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="petalGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23FFF0F5"/><stop offset="50%" style="stop-color:%23DB7093"/><stop offset="100%" style="stop-color:%239370DB"/></linearGradient></defs><path fill="url(%23petalGradient)" opacity="0.8" d="M50,0 C80,10 90,40 100,50 C90,60 80,90 50,100 C20,90 10,60 0,50 C10,40 20,10 50,0 Z M50,30 C60,40 60,60 50,70 C40,60 40,40 50,30 Z"/></svg>');
         }
         .filigree-ornament.bottom-left {
-            bottom: 1rem;
-            left: 1rem;
+            /* DIUBAH: Didekatkan ke tepi */
+            bottom: 0.5rem;
+            left: 0.5rem;
             transform: rotateX(180deg);
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="petalGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23FFF0F5"/><stop offset="50%" style="stop-color:%23DB7093"/><stop offset="100%" style="stop-color:%239370DB"/></linearGradient></defs><path fill="url(%23petalGradient)" opacity="0.8" d="M50,0 C80,10 90,40 100,50 C90,60 80,90 50,100 C20,90 10,60 0,50 C10,40 20,10 50,0 Z M50,30 C60,40 60,60 50,70 C40,60 40,40 50,30 Z"/></svg>');
         }
         .filigree-ornament.bottom-right {
-            bottom: 1rem;
-            right: 1rem;
+            /* DIUBAH: Didekatkan ke tepi */
+            bottom: 0.5rem;
+            right: 0.5rem;
             transform: rotate(180deg);
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="petalGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23FFF0F5"/><stop offset="50%" style="stop-color:%23DB7093"/><stop offset="100%" style="stop-color:%239370DB"/></linearGradient></defs><path fill="url(%23petalGradient)" opacity="0.8" d="M50,0 C80,10 90,40 100,50 C90,60 80,90 50,100 C20,90 10,60 0,50 C10,40 20,10 50,0 Z M50,30 C60,40 60,60 50,70 C40,60 40,40 50,30 Z"/></svg>');
         }
@@ -295,14 +307,16 @@
 
         <!-- Overlay untuk padding dan centering -->
         <!-- z-index overlay ini (dan konten di dalamnya) akan membuatnya tetap di atas background baru -->
-        <div class="cover-blur-overlay p-4">
+        <!-- DIUBAH: p-4 (padding) dihapus dari sini, dipindahkan ke child -->
+        <div class="cover-blur-overlay">
             
             <!-- Diubah: border-amber-600/50 menjadi border-purple-300/50 -->
             <!-- DIUBAH: text-white menjadi theme-text-primary (gelap) -->
             <!-- DIUBAH: md:max-w-lg menjadi md:max-w-5xl agar lebarnya sama dengan konten utama -->
-            <div class="relative z-10 theme-text-primary p-6 md:p-8 w-full md:max-w-5xl md:mx-auto md:border-2 md:border-purple-300/50 md:rounded-lg">
+            <!-- DIUBAH: p-6 (1.5rem) menjadi p-4 (1rem) agar lebih pas di HP kecil -->
+            <div class="relative z-10 theme-text-primary p-4 md:p-8 w-full md:max-w-5xl md:mx-auto md:border-2 md:border-purple-300/50 md:rounded-lg">
                 
-                <!-- Ornamen Sudut Bunga -->
+                <!-- Ornamen Sudut Bunga (Posisi CSS sudah diubah) -->
                 <div class="filigree-ornament top-left"></div>
                 <div class="filigree-ornament top-right"></div>
                 <div class="filigree-ornament bottom-left"></div>
